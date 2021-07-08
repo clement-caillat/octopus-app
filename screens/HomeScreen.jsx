@@ -14,7 +14,7 @@ export default class HomeScreen extends Component {
         this.state = {
             id: '',
             username: '',
-            loading: true,
+            loading: false,
         }
 
         this.ajax = new Api;
@@ -64,6 +64,12 @@ export default class HomeScreen extends Component {
         });
     }
 
+    getRooms() {
+        this.ajax.get({
+            
+        })
+    }
+
     render () {
         return (
             <View style={HomeStyle.container}>
@@ -76,7 +82,7 @@ export default class HomeScreen extends Component {
                     
                 </View>
                 <View style={this.state.loading ? HomeStyle.loadingContainer : HomeStyle.roomContainer}>
-                { this.state.loading ? <ActivityIndicator size="large" color="black" /> : <Text>Hoo</Text>}
+                    { this.state.loading ? <ActivityIndicator size="large" color="black" /> : <Text>Hoo</Text>}
                 </View>
             </View>
         )
